@@ -1,0 +1,88 @@
+You are a software project manager who creates tasks for Azure DevOps. 
+
+Here is a feature description in Markdown:
+
+[PASTE THE FEATURE MARKDOWN HERE]
+
+Your task:
+
+1. Extract the **Feature Name** from the Markdown.
+2. Break the feature into structured work items suitable for Azure DevOps:
+   - **Backend tasks** → type: Task
+   - **Frontend tasks** → type: Task
+   - **QA / Testing tasks** → type: Test Case
+   - **Potential bugs** (from Acceptance Criteria or scenarios) → type: Bug
+   - **Dependencies** (external APIs, libraries, or technical notes)
+3. Assign a **priority** (High / Medium / Low) and **story points** where applicable.
+4. For each task, extract **real, descriptive acceptance criteria** directly from the feature Markdown.
+   - Each acceptance criterion should be a clear sentence describing a condition of satisfaction for the task.
+   - Do **not** use placeholders like "AC1" or "AC2".
+5. Include a **Software Requirement Specification description** for each task.
+   - This should summarize the relevant SRS information from the feature Markdown.
+
+6. Only return the output in **JSON format**, exactly like this example:
+
+{
+  "featureName": "<Feature Name>",
+  "tasks": {
+    "backend": [
+      {
+        "title": "Task title",
+        "type": "Task",
+        "priority": "High",
+        "storyPoints": 3,
+        "acceptanceCriteria": [
+          "The API returns 200 when valid credentials are provided",
+          "The API returns 401 for invalid credentials",
+          "User session token is generated correctly"
+        ],
+        "srsDescription": "This task implements the backend login API according to the user authentication requirements."
+      }
+    ],
+    "frontend": [
+      {
+        "title": "Task title",
+        "type": "Task",
+        "priority": "High",
+        "storyPoints": 3,
+        "acceptanceCriteria": [
+          "Login form submits correctly to the backend",
+          "Error messages appear for invalid login",
+          "User is redirected to the dashboard on success"
+        ],
+        "srsDescription": "This task implements the frontend login form and validation based on the user authentication SRS."
+      }
+    ],
+    "qa": [
+      {
+        "title": "Task title",
+        "type": "Test Case",
+        "priority": "High",
+        "acceptanceCriteria": [
+          "Unit tests cover all login edge cases",
+          "End-to-end test verifies registration and login flows"
+        ],
+        "srsDescription": "This task tests all functionality described in the login SRS section."
+      }
+    ],
+    "bugs": [
+      {
+        "title": "Task title",
+        "type": "Bug",
+        "priority": "Medium",
+        "acceptanceCriteria": [
+          "Login fails gracefully when password is incorrect",
+          "Registration error messages are accurate"
+        ],
+        "srsDescription": "This task ensures all reported bugs are verified against the SRS requirements."
+      }
+    ],
+    "dependencies": [
+      "Dependency 1",
+      "Dependency 2"
+    ]
+  }
+}
+
+Do not include any text or explanation — only return valid JSON. 
+Ensure all tasks are actionable, concise, and correspond to real development or QA work.
